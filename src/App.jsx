@@ -1,26 +1,25 @@
-import { BrowserRouter as Browser, Routes, Route } from "react-router-dom"
-import Menu from "./components/Menu"
-import Home from "./routes/Home"
-import Contato from "./routes/Suporte"
-import Error from "./routes/Error"
-import App from "./routes/App"
+import { BrowserRouter as Browser, Routes, Route } from "react-router-dom";
+import Menu from "./components/Menu";
+import Footer from "./components/Footer";
+import Home from "./routes/Home";
+import Suporte from "./routes/Suporte";
+import Error from "./routes/Error";
+import AppPage from "./routes/AppPage";
+import "./index.css";
 
 function App() {
-
   return (
-    <>
-     <Browser>
-      <Menu/>
+    <Browser>
+      <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/app" element={<App />} />
+        <Route path="/app" element={<AppPage />} />
         <Route path="/suporte" element={<Suporte />} />
         <Route path="*" element={<Error />} />
       </Routes>
-      <Footer/>
-    </Browser> 
-    </>
-  )
+      <Footer />
+    </Browser>
+  );
 }
 
-export default App
+export default App;
