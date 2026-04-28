@@ -1,4 +1,5 @@
 import React from 'react'
+import { Leaf, Trophy, Users } from 'lucide-react'
 
 const Home = () => {
   return (
@@ -86,6 +87,64 @@ const Home = () => {
             <circle cx="80" cy="230" r="3" fill="#1c9770" opacity="0.4"/>
             <circle cx="220" cy="250" r="6" fill="#93CB52" opacity="0.3"/>
           </svg>
+        </div>
+
+      </section>
+
+      <section id="sobre" className="py-20 px-6 md:px-24 bg-white">
+
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-black mb-4"
+            style={{ fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)'}}
+          >
+            Saúde que faz sentido para o seu dia a dia
+          </h2>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
+            O Health Plus foi pensado para caber na sua rotina - simples, motivador e recompensador.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+          <div className="flex flex-col items-center text-center p-8 rounded-3xl gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+            style={{ backgroundColor: '#f5f9f7'}}>
+            <div className="p-4 rounded-2xl" style={{ backgroundColor: '#1c9770' }}>
+              <Leaf size={32} color="white" />
+            </div>
+            <h3 className="text-xl font-bold" style={{color: 'var(--text-dark)'}}>
+              Hábitos Diários
+            </h3>
+            <p style={{ color: 'var(--text-muted)'}}>
+              Missões simples e objetivas que cabem na sua rotina sem gerar pressão ou sobrecarga.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center p-8 rounded-3xl gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+            style={{ backgroundColor: '#f5f9f7'}}>
+            <div className="p-4 rounded-2xl" style={{ backgroundColor: '#1c9770' }}>
+              <Trophy size={32} color="white" />
+            </div>
+            <h3 className="text-xl font-bold" style={{color: 'var(--text-dark)'}}>
+              Recompensas Reais
+            </h3>
+            <p style={{ color: 'var(--text-muted)'}}>
+              Ganhe diamantes a cada conquista e troque por benefícios reais do seu plano de saúde.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center text-center p-8 rounded-3xl gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+            style={{ backgroundColor: '#f5f9f7'}}>
+            <div className="p-4 rounded-2xl" style={{ backgroundColor: '#1c9770' }}>
+              <Users size={32} color="white" />
+            </div>
+            <h3 className="text-xl font-bold" style={{color: 'var(--text-dark)'}}>
+              Saúde em Grupo
+            </h3>
+            <p style={{ color: 'var(--text-muted)'}}>
+              Crie ciclos com amigos, acompanhe conquistas coletivas e evolua junto sem competição tóxica.
+            </p>
+          </div>
+
         </div>
 
       </section>
