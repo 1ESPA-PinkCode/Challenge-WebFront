@@ -1,6 +1,18 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap');
+
+:root {
+  --green-dark:   #1c9770;
+  --green-light:  #7AD1C3;
+  --green-lime:   #93CB52;
+  --white:        #ffffff;
+  --gray-soft:    #f5f9f7;
+  --text-dark:    #1a2e25;
+  --text-muted:   #4a6b5c;
+}
 
 html, body, #root {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
