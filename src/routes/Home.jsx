@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaf, Trophy, Users } from 'lucide-react'
+import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot } from 'lucide-react'
 
 const Home = () => {
   return (
@@ -147,6 +147,62 @@ const Home = () => {
 
         </div>
 
+      </section>
+
+      <section id="como-funciona" className="py-20 px-6 md:px-24 bg-white">
+
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-4xl font-black mb-4"
+            style={{ fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)'}}
+          >
+            Como o Health Plus funciona?
+          </h2>
+          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
+          Uma jornada simples, motivadora e pensada para o seu dia a dia.
+          </p>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-start justify-center gap-0 max-w-6xl mx-auto">
+
+          {[
+            { icon: <UserPlus size={28} color="white" />, titulo: "Crie seu perfil", desc: "Cadastre-se, faça o onboarding e configure seus hábitos iniciais do seu jeito.", cor: "#1c9770" },
+            { icon: <ClipboardList size={28} color="white" />, titulo: "Receba suas missões", desc: "Missões diárias simples e objetivas aparecem todo dia pra você.", cor: "#7AD1C3" },
+            { icon: <CheckCircle size={28} color="white" />, titulo: "Complete e registre", desc: "Marque seus hábitos como concluídos e receba feedback visual na hora.", cor: "#93CB52" },
+            { icon: <Gem size={28} color="white" />, titulo: "Ganhe diamantes", desc: "Cada missão cumprida gera recompensas que você troca por benefícios reais.", cor: "#1c9770" },
+            { icon: <Sprout size={28} color="white" />, titulo: "Veja sua planta crescer", desc: "Sua consistência vira evolução visual — desbloqueie novas plantas e monte seu jardim.", cor: "#7AD1C3" },
+            { icon: <Bot size={28} color="white" />, titulo: "Conte com a Bloom", desc: "Sua assistente virtual te acompanha com mensagens leves, incentivos e cuidado diário.", cor: "#93CB52" },
+          ].map((passo, index) => (
+            <div key={index} className="flex flex-col md:flex-row items-center flex-1">
+
+              <div className="flex flex-col items-center text-center gap-3 p-6 flex-1">
+                <div className="relative">
+                  <div
+                    className="w-16 h-16 rounded-full flex items-center justify-center shadow-lg"
+                    style={{ backgroundColor: passo.cor }}
+                  >
+                    {passo.icon}
+                  </div>
+
+                </div>
+
+                <h3 className="text-base font-bold mt-2" style={{ color: 'var(--text-dark)' }}>
+                  {passo.titulo}
+                </h3>
+                <p className="text-sm leading-relaxed max-w-40" style={{ color: 'var(--text-muted)' }}>
+                  {passo.desc}
+                </p>
+              </div>
+              {index < 5 && (
+                <div
+                  className="hidden md:block h-0.5 w-8 shrink-0"
+                  style={{ backgroundColor: '#7AD1C3' }}
+                />
+              )}
+
+            </div>
+          ))}
+
+          </div>
       </section>
 
     </main>
