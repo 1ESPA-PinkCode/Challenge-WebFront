@@ -24,7 +24,7 @@ const Home = () => {
             com gamificação, recompensas e uma plantinha que cresce junto com você.
           </p>
 
-          <div className="flex flex-row flex-wrap justify-center md:justify-start gap-4">
+          <div className="hero-bnts flex flex-row flex-wrap justify-center md:justify-start gap-4">
 
             <a href="/app" className="px-8 py-3 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-1"
               style={{ backgroundColor: 'var(--green-dark)' }}
