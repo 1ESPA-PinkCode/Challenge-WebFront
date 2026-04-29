@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot } from 'lucide-react'
+import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot, Wifi, Bell, Heart, Footprints } from 'lucide-react'
 
 const Home = () => {
   return (
@@ -203,6 +203,115 @@ const Home = () => {
           ))}
 
           </div>
+      </section>
+
+      <section id="chaveiro" className="py-20 px-6 md:px-24 bg-[#f5f9f7]">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+
+          <div className="flex flex-col items-center md:items-start gap-6 flex-1 text-center md:text-left">
+
+            <span
+              className="text-sm font-bold tracking-widest uppercase px-4 py-1 rounded-full"
+              style={{ backgroundColor: '#7AD1C3', color: 'var(--text-dark)' }}
+            >
+              Novidade
+            </span>
+
+            <h2
+              className="text-3xl md:text-4xl font-black leading-tight"
+              style={{ fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)' }}
+            >
+              Leve sua saúde<br />para onde for
+            </h2>
+
+            <p className="text-base md:text-lg max-w-md leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              O Chaveiro Inteligente é a extensão física do Health Plus. Com um conta-passos integrado, 
+              sua plantinha evolui conforme você se movimenta — mesmo longe do celular. Inspirado nos 
+              Tamagotchis, ele mantém você conectado à sua jornada de saúde o dia todo.
+            </p>
+
+            <div className="flex flex-col gap-4 w-full max-w-md">
+              {[
+                { icon: <Footprints size={20} color="white" />, texto: "Conta-passos integrado que alimenta sua planta" },
+                { icon: <Sprout size={20} color="white" />, texto: "Plantinha evolui com sua movimentação diária" },
+                { icon: <Bell size={20} color="white" />, texto: "Lembretes sutis ao longo do dia" },
+                { icon: <Wifi size={20} color="white" />, texto: "Sincroniza com o app em tempo real" },
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: '#1c9770' }}
+                  >
+                    {item.icon}
+                  </div>
+                  <p className="text-base font-medium" style={{ color: 'var(--text-dark)' }}>
+                    {item.texto}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+          <div className="flex items-center justify-center flex-1">
+            <svg
+              viewBox="0 0 280 320"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-64 md:w-72 lg:w-80 drop-shadow-2xl"
+              style={{ animation: 'float 4s ease-in-out infinite' }}
+            >
+              {/* Cordão */}
+              <path d="M140 10 Q160 30 155 55" stroke="#1c9770" strokeWidth="4" fill="none" strokeLinecap="round"/>
+              <circle cx="155" cy="58" r="5" fill="#1c9770"/>
+
+              {/* Corpo do chaveiro */}
+              <rect x="60" y="60" width="160" height="190" rx="40" ry="40" fill="#1c9770"/>
+              <rect x="68" y="68" width="144" height="174" rx="34" ry="34" fill="#0d7a58"/>
+
+              {/* Tela */}
+              <rect x="80" y="85" width="120" height="110" rx="16" ry="16" fill="#f0faf5"/>
+              <rect x="85" y="90" width="110" height="100" rx="12" ry="12" fill="#e0f5ec"/>
+
+              {/* Planta dentro da tela */}
+              {/* Vaso */}
+              <path d="M118 175 Q118 185 140 187 Q162 185 162 175 Z" fill="#1c9770"/>
+              <path d="M115 168 Q115 178 140 180 Q165 178 165 168 Z" fill="#7AD1C3"/>
+
+              {/* Caule */}
+              <line x1="140" y1="168" x2="140" y2="130" stroke="#1c9770" strokeWidth="3" strokeLinecap="round"/>
+
+              {/* Folhas */}
+              <path d="M140 155 Q120 145 115 125 Q133 132 140 148" fill="#93CB52"/>
+              <path d="M140 145 Q160 135 165 115 Q147 122 140 138" fill="#1c9770"/>
+
+              {/* Florzinha */}
+              <circle cx="140" cy="118" r="12" fill="#93CB52"/>
+              <circle cx="140" cy="118" r="7" fill="#1c9770"/>
+              <circle cx="140" cy="118" r="3" fill="#7AD1C3"/>
+
+              {/* Pétalas florzinha */}
+              <ellipse cx="140" cy="104" rx="5" ry="8" fill="#93CB52" opacity="0.8"/>
+              <ellipse cx="140" cy="132" rx="5" ry="8" fill="#93CB52" opacity="0.8"/>
+              <ellipse cx="126" cy="118" rx="8" ry="5" fill="#93CB52" opacity="0.8"/>
+              <ellipse cx="154" cy="118" rx="8" ry="5" fill="#93CB52" opacity="0.8"/>
+
+              {/* Passos / conta-passos */}
+              <text x="88" y="105" fontSize="9" fill="#1c9770" fontWeight="bold" fontFamily="sans-serif">👟 247 passos</text>
+
+              {/* Botões inferiores */}
+              <circle cx="105" cy="220" r="12" fill="#7AD1C3"/>
+              <circle cx="140" cy="225" r="14" fill="#93CB52"/>
+              <circle cx="175" cy="220" r="12" fill="#7AD1C3"/>
+
+              {/* Ícones nos botões */}
+              <text x="99" y="225" fontSize="10" fill="white" fontWeight="bold" fontFamily="sans-serif">←</text>
+              <text x="134" y="231" fontSize="12" fill="white" fontWeight="bold" fontFamily="sans-serif">OK</text>
+              <text x="169" y="225" fontSize="10" fill="white" fontWeight="bold" fontFamily="sans-serif">→</text>
+
+            </svg>
+          </div>
+
+        </div>
       </section>
 
     </main>
