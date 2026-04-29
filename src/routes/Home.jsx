@@ -425,6 +425,32 @@ const Home = () => {
         </div>
 
       </section>
+
+      <section id="cta" className="py-24 px-6 md:px-24 bg-[#f5f9f7]">
+        <div className="flex flex-col items-center text-center gap-8 max-w-2xl mx-auto">
+
+          <div
+            className="w-20 h-20 rounded-full flex items-center justify-center shadow-lg"
+            style={{ backgroundColor: '#1c9770' }}
+          >
+            <Sprout size={40} color="white" />
+          </div>
+
+          <h2
+            className="text-4xl md:text-5xl font-black leading-tight"
+            style={{ fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)' }}
+          >
+            Pronto para florescer?
+          </h2>
+
+          <p className="text-base md:text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+            Comece sua jornada com o Health Plus hoje mesmo. 
+            Cuide dos seus hábitos, evolua sua planta e transforme 
+            o autocuidado em algo prazeroso e recompensador.
+          </p>
+
+        </div>
+      </section>
       
     </main>
   )
