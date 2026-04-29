@@ -1,5 +1,5 @@
 import React from 'react'
-import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot, Wifi, Bell, Footprints, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react'
+import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot, Wifi, Bell, Footprints, MessageCircle, ShieldCheck, Sparkles, Medal } from 'lucide-react'
 import bloom from '../assets/bloom.jpeg'
 
 const Home = () => {
@@ -92,15 +92,15 @@ const Home = () => {
 
       </section>
 
-      <section id="sobre" className="py-20 px-6 md:px-24 bg-white">
+      <section id="sobre" className="py-20 px-6 md:px-24 bg-[#1c9770]">
 
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-black mb-4"
-            style={{ fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)'}}
+          <h2 className="text-3xl md:text-4xl text-white mb-4"
+            style={{ fontFamily: 'Playfair Display, serif'}}
           >
             Saúde que faz sentido para o seu dia a dia
           </h2>
-          <p className="text-base md:text-lg max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-base md:text-lg max-w-xl mx-auto text-white opacity-80">
             O Health Plus foi pensado para caber na sua rotina - simples, motivador e recompensador.
           </p>
         </div>
@@ -380,6 +380,52 @@ const Home = () => {
         </div>
       </section>
 
+      <section id="gamificacao" className="py-20 px-6 md:px-24" style={{ backgroundColor: '#1c9770' }}>
+
+        <div className="text-center mb-14">
+          <h2
+            className="text-3xl md:text-4xl font-black mb-4 text-white"
+            style={{ fontFamily: 'Playfair Display, serif' }}
+          >
+            Cada hábito conta.<br />Cada conquista importa.
+          </h2>
+          <p className="text-base md:text-lg max-w-xl mx-auto text-white opacity-80">
+            O Health Plus transforma seu autocuidado em uma experiência cheia de recompensas, evolução e conquistas.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+
+          {[
+            { icon: <Sprout size={32} color="#1c9770" />, titulo: "Planta & Jardim", desc: "Evolua sua planta com consistência e desbloqueie novas espécies para montar seu jardim.", bg: "#7AD1C3" },
+            { icon: <Gem size={32} color="#1c9770" />, titulo: "Diamantes", desc: "Acumule diamantes completando missões e troque por benefícios reais do seu plano.", bg: "#7AD1C3" },
+            { icon: <ClipboardList size={32} color="#1c9770" />, titulo: "Missões Diárias", desc: "Desafios simples e objetivos que cabem na sua rotina sem gerar pressão.", bg: "#7AD1C3" },
+            { icon: <Users size={32} color="#1c9770" />, titulo: "Ciclos", desc: "Crie grupos com amigos, acompanhe conquistas coletivas e evolua junto sem competição tóxica.", bg: "#7AD1C3" },
+          ].map((card, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center text-center p-8 rounded-3xl gap-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              style={{ backgroundColor: card.bg }}
+            >
+              <div
+                className="p-4 rounded-2xl"
+                style={{ backgroundColor: 'white' }}
+              >
+                {card.icon}
+              </div>
+              <h3 className="text-xl font-bold" style={{ color: 'var(--text-dark)' }}>
+                {card.titulo}
+              </h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                {card.desc}
+              </p>
+            </div>
+          ))}
+
+        </div>
+
+      </section>
+      
     </main>
   )
 }
