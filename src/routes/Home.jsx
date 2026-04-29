@@ -1,5 +1,6 @@
 import React from 'react'
-import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot, Wifi, Bell, Heart, Footprints } from 'lucide-react'
+import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot, Wifi, Bell, Footprints, MessageCircle, ShieldCheck, Sparkles } from 'lucide-react'
+import bloom from '../assets/bloom.jpeg'
 
 const Home = () => {
   return (
@@ -309,6 +310,71 @@ const Home = () => {
               <text x="169" y="225" fontSize="10" fill="white" fontWeight="bold" fontFamily="sans-serif">→</text>
 
             </svg>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="bloom" className="py-20 px-6 md:px-24 bg-white">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+
+          <div className="flex items-center justify-center flex-1">
+            <div className="relative">
+              <div
+                className="absolute inset-0 rounded-full scale-110"
+                style={{ backgroundColor: '#f0faf5' }}
+              />
+              <img
+                src={bloom}
+                alt="Bloom, assistente virtual do Health Plus"
+                className="relative w-64 md:w-72 lg:w-80 rounded-full object-cover shadow-2xl"
+                style={{ border: '6px solid #7AD1C3' }}
+              />
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center md:items-start gap-6 flex-1 text-center md:text-left">
+
+            <span
+              className="text-sm font-bold tracking-widest uppercase px-4 py-1 rounded-full"
+              style={{ backgroundColor: '#7AD1C3', color: 'var(--text-dark)' }}
+            >
+              Assistente Virtual
+            </span>
+
+            <h2
+              className="text-3xl md:text-4xl font-black leading-tight"
+              style={{ fontFamily: 'Playfair Display, serif', color: 'var(--text-dark)' }}
+            >
+              Conheça a Bloom,<br />sua companheira de saúde
+            </h2>
+
+            <p className="text-base md:text-lg max-w-md leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+              A Bloom é a assistente virtual do Health Plus. Com uma comunicação leve, 
+              empática e nunca punitiva, ela te acompanha todos os dias com incentivos, 
+              sugestões de cuidados preventivos e alertas carinhosos quando você precisar.
+            </p>
+
+            <div className="flex flex-col gap-4 w-full max-w-md">
+              {[
+                { icon: <MessageCircle size={20} color="white" />, texto: "Mensagens diárias de incentivo e cuidado" },
+                { icon: <ShieldCheck size={20} color="white" />, texto: "Sugestões de cuidados preventivos personalizados" },
+                { icon: <Sparkles size={20} color="white" />, texto: "Comunicação acolhedora, leve e sem julgamentos" },
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-4">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: '#1c9770' }}
+                  >
+                    {item.icon}
+                  </div>
+                  <p className="text-base font-medium" style={{ color: 'var(--text-dark)' }}>
+                    {item.texto}
+                  </p>
+                </div>
+              ))}
+            </div>
+
           </div>
 
         </div>
