@@ -218,7 +218,8 @@ git clone <link-do-repositorio>
 
 ### 2. Entre na pasta
 ```bash
-cd sprint-webfront
+cd Challenge-WebFront
+
 ```
 
 ### 3. Instale as dependências
