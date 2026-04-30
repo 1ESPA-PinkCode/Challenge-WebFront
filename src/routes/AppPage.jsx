@@ -58,6 +58,7 @@ const STORAGE_KEY = 'girassol_missoes';
 
 const AppPage = () => {
   const [abaAtiva, setAbaAtiva] = useState('missoes');
+  const [murcho, setMurcho] = useState(false);
 
   const [missoes, setMissoes] = useState(() => {
     const salvo = localStorage.getItem(STORAGE_KEY);
@@ -110,12 +111,18 @@ const AppPage = () => {
           <Girassol
             missionsCompleted={progressoTotal}
             totalMissions={missoes.length}
-            isWilted={false}
+            isWilted={murcho}
             showLabel={true}
           />
           <p className="text-xs text-gray-500 mt-2 text-center">
             {progressoTotal.toFixed(1)} de {missoes.length} missões completas
           </p>
+          <button
+            onClick={() => setMurcho(!murcho)}
+            className="mt-3 px-4 py-1.5 text-xs text-gray-600 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-colors"
+          >
+            {murcho ? 'Reviver flor' : 'Ver flor murcha'}
+          </button>
         </section>
 
         <section className="flex flex-col gap-4">
