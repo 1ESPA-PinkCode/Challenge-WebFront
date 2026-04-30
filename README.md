@@ -213,7 +213,7 @@ O projeto foi desenvolvido com layout responsivo para:
 
 ### 1. Clone o repositório
 ```bash
-git clone [<link-do-repositorio>](https://github.com/1ESPA-PinkCode/Challenge-WebFront.git)
+git clone https://github.com/1ESPA-PinkCode/Challenge-WebFront.git
 ```
 
 ### 2. Entre na pasta
