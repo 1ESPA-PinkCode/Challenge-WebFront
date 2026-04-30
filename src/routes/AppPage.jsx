@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Missoes from '../components/Missoes';
 import Grupos from '../components/Grupos';
+import Girassol from '../components/Girassol';
 
 const MISSOES_INICIAIS = [
   {
@@ -106,23 +107,14 @@ const AppPage = () => {
 
       <main className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <section className="flex flex-col items-center lg:sticky lg:top-8">
-          <div className="w-full max-w-md aspect-square rounded-xl bg-linear-to-b from-[#F5F0E1] from-[55%] to-[#D4BE85] to-[55%] flex items-center justify-center text-center px-6">
-            <div>
-              <div className="text-6xl mb-3">
-                {progressoTotal === 0 ? '🌱' :
-                 progressoTotal < missoes.length * 0.5 ? '🌿' :
-                 progressoTotal < missoes.length ? '🌾' : '🌻'}
-              </div>
-              <p className="text-sm text-gray-600 mb-1">
-                [Espaço reservado para a flor]
-              </p>
-              <p className="text-xs text-gray-500">
-                {progressoTotal.toFixed(1)} de {missoes.length} missões completas
-              </p>
-            </div>
-          </div>
-          <p className="text-xs text-gray-400 mt-3 text-center max-w-xs">
-            Quando o componente da flor for adicionado, ele entrará neste lugar
+          <Girassol
+            missionsCompleted={progressoTotal}
+            totalMissions={missoes.length}
+            isWilted={false}
+            showLabel={true}
+          />
+          <p className="text-xs text-gray-500 mt-2 text-center">
+            {progressoTotal.toFixed(1)} de {missoes.length} missões completas
           </p>
         </section>
 
@@ -146,7 +138,7 @@ const AppPage = () => {
               }`}
               onClick={() => setAbaAtiva('grupos')}
             >
-              👥 Grupos
+              Grupos
             </button>
           </nav>
 
