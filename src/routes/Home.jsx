@@ -28,10 +28,10 @@ const Home = () => {
 
           <div className="hero-bnts flex flex-row flex-wrap justify-center md:justify-start gap-4">
 
-            <a href="/app" className="px-8 py-3 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-1"
+            <a href="/login" className="px-8 py-3 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-1"
               style={{ backgroundColor: 'var(--green-dark)' }}
             >
-              Conheça nosso Aplicativo
+              Faça seu login
             </a>
             <a href="/suporte" className="px-8 py-3 rounded-full font-bold transition-all duration-300 hover:-translate-y-1"
               style={{ color: 'var(--green-dark)', border: '2px solid var(--green-dark)' }}
