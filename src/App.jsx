@@ -5,6 +5,8 @@ import Home from "./routes/Home";
 import Suporte from "./routes/Suporte";
 import Error from "./routes/Error";
 import AppPage from "./routes/AppPage";
+import Login from "./routes/Login";
+import Cadastro from "./routes/Cadastro";
 import "./index.css";
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/app" element={<AppPage />} />
             <Route path="/suporte" element={<Suporte />} />
             <Route path="*" element={<Error />} />
