@@ -1,85 +1,60 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import Missoes from '../components/Missoes';
 import Grupos from '../components/Grupos';
 import Girassol from '../components/Girassol';
 
-const MISSOES_INICIAIS = [
-  {
-    id: 1,
-    titulo: 'Meditação Matinal',
-    descricao: 'Pratique 10 minutos de meditação',
-    iconeKey: 'meditacao',
-    corFundo: '#E0F2F1',
-    corIcone: '#00897B',
-    progresso: 0,
-    meta: 10,
-    unidade: 'min',
-    recompensa: 30
-  },
-  {
-    id: 2,
-    titulo: 'Sono Reparador',
-    descricao: 'Durma 8 horas essa noite',
-    iconeKey: 'sono',
-    corFundo: '#E3F2FD',
-    corIcone: '#1976D2',
-    progresso: 0,
-    meta: 8,
-    unidade: 'horas',
-    recompensa: 40
-  },
-  {
-    id: 3,
-    titulo: 'Hidratação',
-    descricao: 'Beba 8 copos de água',
-    iconeKey: 'agua',
-    corFundo: '#E1F5FE',
-    corIcone: '#0288D1',
-    progresso: 0,
-    meta: 8,
-    unidade: 'copos',
-    recompensa: 25
-  },
-  {
-    id: 4,
-    titulo: 'Movimento',
-    descricao: 'Faça 30 minutos de exercício',
-    iconeKey: 'exercicio',
-    corFundo: '#FFF3E0',
-    corIcone: '#F57C00',
-    progresso: 0,
-    meta: 30,
-    unidade: 'min',
-    recompensa: 50
-  }
-];
-
 const STORAGE_KEY = 'girassol_missoes';
 
 const AppPage = () => {
+  const navigate = useNavigate();
   const [abaAtiva, setAbaAtiva] = useState('missoes');
   const [murcho, setMurcho] = useState(false);
-
-  const [missoes, setMissoes] = useState(() => {
-    const salvo = localStorage.getItem(STORAGE_KEY);
-    if (!salvo) return MISSOES_INICIAIS;
-
-    try {
-      const dados = JSON.parse(salvo);
-      const hoje = new Date().toDateString();
-
-      if (dados.data !== hoje) return MISSOES_INICIAIS;
-
-      return MISSOES_INICIAIS.map(inicial => {
-        const salva = dados.missoes.find(m => m.id === inicial.id);
-        return salva ? { ...inicial, progresso: salva.progresso } : inicial;
-      });
-    } catch {
-      return MISSOES_INICIAIS;
-    }
-  });
+  const [missoes, setMissoes] = useState([]);
+  const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
+    const usuario = sessionStorage.getItem("usuario");
+    if (!usuario) {
+      navigate("/login");
+    }
+  }, []);
+
+  useEffect(() => {
+    fetch("/missoes.json")
+      .then((res) => res.json())
+      .then((dadosJSON) => {
+        const salvo = localStorage.getItem(STORAGE_KEY);
+
+        if (salvo) {
+          try {
+            const dados = JSON.parse(salvo);
+            const hoje = new Date().toDateString();
+
+            if (dados.data === hoje) {
+              const missoresComProgresso = dadosJSON.map(inicial => {
+                const salva = dados.missoes.find(m => m.id === inicial.id);
+                return salva ? { ...inicial, progresso: salva.progresso } : { ...inicial, progresso: 0 };
+              });
+              setMissoes(missoresComProgresso);
+              setCarregando(false);
+              return;
+            }
+          } catch {
+          }
+        }
+
+        setMissoes(dadosJSON.map(m => ({ ...m, progresso: 0 })));
+        setCarregando(false);
+      })
+      .catch((err) => {
+        console.error("Erro ao carregar missões:", err);
+        setCarregando(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (missoes.length === 0) return;
     const dados = {
       data: new Date().toDateString(),
       missoes: missoes.map(m => ({ id: m.id, progresso: m.progresso }))
@@ -96,6 +71,14 @@ const AppPage = () => {
   const progressoTotal = missoes.reduce((acc, m) => {
     return acc + Math.min(1, m.progresso / m.meta);
   }, 0);
+
+  if (carregando) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#FAF7F0]">
+        <p className="text-green-600 text-lg">Carregando missões... 🌱</p>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#FAF7F0] py-8 px-4">
