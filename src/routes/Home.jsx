@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from 'react'
 import { Leaf, Trophy, Users, UserPlus, ClipboardList, CheckCircle, Gem, Sprout, Bot, Wifi, Bell, Footprints, MessageCircle, ShieldCheck, Sparkles, Medal } from 'lucide-react'
 import bloom from '../assets/bloom.jpeg'
@@ -28,16 +29,21 @@ const Home = () => {
 
           <div className="hero-bnts flex flex-row flex-wrap justify-center md:justify-start gap-4">
 
-            <a href="/login" className="px-8 py-3 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-1"
+            <Link
+              to="/login"
+              className="px-8 py-3 rounded-full font-bold text-white transition-all duration-300 hover:-translate-y-1"
               style={{ backgroundColor: 'var(--green-dark)' }}
             >
               Faça seu login
-            </a>
-            <a href="/suporte" className="px-8 py-3 rounded-full font-bold transition-all duration-300 hover:-translate-y-1"
+            </Link>
+
+            <Link
+              to="/suporte"
+              className="px-8 py-3 rounded-full font-bold transition-all duration-300 hover:-translate-y-1"
               style={{ color: 'var(--green-dark)', border: '2px solid var(--green-dark)' }}
             >
               Falar com suporte
-            </a>
+            </Link>
           </div>
         </div>
 
