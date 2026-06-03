@@ -33,7 +33,30 @@ Cada hábito concluído gera progresso dentro do aplicativo e contribui para o c
 
 ---
 
+## Deploy
+
+Link do Deploy:
+
+```txt
+https://challenge-web-front-self.vercel.app/
+```
+
+---
+
+## Repositório GitHub
+
+Link do Repositório:
+
+```txt
+https://github.com/1ESPA-PinkCode/Challenge-WebFront
+```
+
+
+
+---
+
 ## Equipe de Desenvolvimento
+Projeto desenvolvido para a disciplina de Web Development e Front-End Design utilizando React, Vite e Tailwind CSS.
 
 | RM | Nome |
 |----|------|
@@ -46,15 +69,16 @@ Cada hábito concluído gera progresso dentro do aplicativo e contribui para o c
 
 ## Tecnologias Utilizadas
 
-- **React**
-- **Vite**
-- **Tailwind CSS**
-- **React Router DOM**
-- **React Icons**
-- **Lucide React**
-- **JavaScript (ES6+)**
-- **HTML5**
-- **CSS3**
+* **React**
+* **Vite**
+* **Tailwind CSS**
+* **React Router DOM**
+* **React Icons**
+* **Lucide React**
+* **JavaScript (ES6+)**
+* **Python**
+* **HTML5**
+* **CSS3**
 
 ---
 
@@ -76,8 +100,11 @@ SPRINT-WEBFRONT/
 │   │
 │   ├── routes/
 │   │   ├── AppPage.jsx
+│   │   ├── Cadastro.jsx
 │   │   ├── Error.jsx
 │   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Perfil.jsx
 │   │   └── Suporte.jsx
 │   │
 │   ├── App.jsx
@@ -173,6 +200,23 @@ Página completa para atendimento ao usuário contendo:
 
 ---
 
+### Perfil do Usuário
+
+O sistema conta com uma página de perfil que permite ao usuário visualizar e atualizar suas informações pessoais de forma simples e intuitiva.
+
+Nessa área é possível:
+
+* visualizar os dados da conta
+* editar informações do perfil
+* atualizar credenciais de acesso
+* realizar logout
+* gerenciar a própria conta
+
+A interface foi desenvolvida seguindo a identidade visual do projeto, utilizando a mesma paleta de cores e princípios de experiência do usuário presentes nas demais telas da aplicação.
+
+
+---
+
 ### Gamificação
 O projeto transforma saúde em experiência gamificada através de:
 
@@ -251,5 +295,6 @@ Este projeto foi desenvolvido como atividade prática da disciplina de **Web Dev
 - front-end moderno
 - UI/UX
 - gamificação
+- integração entre front-end e serviços desenvolvidos em Python
 
 ---
