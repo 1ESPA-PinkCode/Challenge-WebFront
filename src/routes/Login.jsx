@@ -4,13 +4,19 @@ import { useNavigate, Link } from "react-router-dom";
 function Login() {
   const navigate = useNavigate();
 
-  // Estados do formulário
-  const [email, setEmail] = useState("");
+  const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
-
-  // Estados de feedback
   const [erro, setErro] = useState("");
   const [carregando, setCarregando] = useState(false);
+
+  function formatarCpf(valor) {
+    return valor
+      .replace(/\D/g, "")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+      .slice(0, 14);
+  }
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -21,7 +27,7 @@ function Login() {
       const resposta = await fetch("http://127.0.0.1:5000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, senha }),
+        body: JSON.stringify({ cpf: cpf.replace(/\D/g, ""), senha }),
       });
 
       const dados = await resposta.json();
@@ -31,10 +37,8 @@ function Login() {
         return;
       }
 
-      // Salva o usuário no sessionStorage pra usar em outras páginas
       sessionStorage.setItem("usuario", JSON.stringify(dados));
 
-      // Redireciona para o app
       navigate("/app");
 
     } catch (e) {
@@ -58,12 +62,12 @@ function Login() {
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-gray-700">E-mail</label>
+            <label className="text-sm font-medium text-gray-700">CPF (número do plano)</label>
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="seu@email.com"
+              type="text"
+              value={cpf}
+              onChange={(e) => setCpf(formatarCpf(e.target.value))}
+              placeholder="000.000.000-00"
               required
               className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
@@ -81,7 +85,6 @@ function Login() {
             />
           </div>
 
-          {/* Mensagem de erro */}
           {erro && (
             <div className="bg-red-50 border border-red-300 text-red-600 text-sm rounded-lg px-4 py-2">
               {erro}

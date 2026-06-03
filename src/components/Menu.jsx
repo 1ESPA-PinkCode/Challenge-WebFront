@@ -41,6 +41,15 @@ const Menu = () => {
           </NavLink>
 
           <NavLink
+            to="/perfil"
+            className={({ isActive }) =>
+              `${linkBase} ${isActive ? linkActive : linkInactive}`
+            }
+          >
+            Perfil
+          </NavLink>
+
+          <NavLink
             to="/suporte"
             className={({ isActive }) =>
               `${linkBase} ${isActive ? linkActive : linkInactive}`

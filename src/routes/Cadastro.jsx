@@ -6,19 +6,34 @@ function Cadastro() {
 
   // Estados do formulário
   const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
+  const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
   const [confirmarSenha, setConfirmarSenha] = useState("");
-
-  // Estados de feedback
   const [erro, setErro] = useState("");
   const [carregando, setCarregando] = useState(false);
+
+  function formatarCpf(valor) {
+    return valor
+      .replace(/\D/g, "")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+      .slice(0, 14);
+  }
+
+  function validarCpf(cpf) {
+    return cpf.replace(/\D/g, "").length === 11;
+  }
 
   async function handleCadastro(e) {
     e.preventDefault();
     setErro("");
 
-    // Validação: senhas iguais
+    if (!validarCpf(cpf)) {
+      setErro("CPF inválido. Digite os 11 dígitos.");
+      return;
+    }
+
     if (senha !== confirmarSenha) {
       setErro("As senhas não coincidem.");
       return;
@@ -30,7 +45,7 @@ function Cadastro() {
       const resposta = await fetch("http://127.0.0.1:5000/cadastro", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, email, senha }),
+        body: JSON.stringify({ nome, cpf: cpf.replace(/\D/g, ""), senha }),
       });
 
       const dados = await resposta.json();
@@ -40,7 +55,6 @@ function Cadastro() {
         return;
       }
 
-      // Cadastro ok, redireciona para o login
       navigate("/login");
 
     } catch (e) {
@@ -64,7 +78,7 @@ function Cadastro() {
         <form onSubmit={handleCadastro} className="flex flex-col gap-4">
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-gray-700">Nome</label>
+            <label className="text-sm font-medium text-gray-700">Nome Completo</label>
             <input
               type="text"
               value={nome}
@@ -76,12 +90,12 @@ function Cadastro() {
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-gray-700">E-mail</label>
+            <label className="text-sm font-medium text-gray-700">CPF (número do plano)</label>
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="seu@email.com"
+              type="text"
+              value={cpf}
+              onChange={(e) => setCpf(formatarCpf(e.target.value))}
+              placeholder="000.000.000-00"
               required
               className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
             />
@@ -111,7 +125,6 @@ function Cadastro() {
             />
           </div>
 
-          {/* Mensagem de erro */}
           {erro && (
             <div className="bg-red-50 border border-red-300 text-red-600 text-sm rounded-lg px-4 py-2">
               {erro}

@@ -17,16 +17,14 @@ const AppPage = () => {
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    const usuario = sessionStorage.getItem("usuario");
-    if (!usuario) {
-      navigate("/login");
-      return;
+    const dados = sessionStorage.getItem("usuario");
+    if (dados) {
+      const dadosUsuario = JSON.parse(dados);
+      setNomeUsuario(dadosUsuario.nome);
+      setMostrarModal(true);
     }
-    const dadosUsuario = JSON.parse(usuario);
-    setNomeUsuario(dadosUsuario.nome);
-    setMostrarModal(true);
   }, []);
-
+  
   useEffect(() => {
     fetch("/missoes.json")
       .then((res) => res.json())

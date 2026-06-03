@@ -5,6 +5,7 @@ import Home from "./routes/Home";
 import Suporte from "./routes/Suporte";
 import Error from "./routes/Error";
 import AppPage from "./routes/AppPage";
+import Perfil from "./routes/Perfil";
 import Login from "./routes/Login";
 import Cadastro from "./routes/Cadastro";
 import "./index.css";
@@ -21,6 +22,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/app" element={<AppPage />} />
+            <Route path="/perfil" element={<Perfil />} />
             <Route path="/suporte" element={<Suporte />} />
             <Route path="*" element={<Error />} />
           </Routes>
