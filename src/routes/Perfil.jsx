@@ -13,7 +13,6 @@ function Perfil() {
   const [carregando, setCarregando] = useState(false);
   const [confirmarDelete, setConfirmarDelete] = useState(false);
 
-  // Proteção de rota — redireciona pro login se não estiver logado
   useEffect(() => {
     const dados = sessionStorage.getItem("usuario");
     if (!dados) {
@@ -46,7 +45,7 @@ function Perfil() {
       const body = { nome };
       if (senha) body.senha = senha;
 
-      const resposta = await fetch(`http://127.0.0.1:5000/usuario/${usuario.cpf}`, {
+      const resposta = await fetch(`https://health-plus-api.onrender.com/usuario/${usuario.cpf}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
