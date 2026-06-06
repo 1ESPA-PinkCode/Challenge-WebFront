@@ -83,7 +83,7 @@ function Perfil() {
   async function handleDeletar() {
     try {
       const resposta = await fetch(
-        `http://127.0.0.1:5000/usuario/${usuario.cpf}`,
+        `https://health-plus-api.onrender.com/usuario/${usuario.cpf}`,
         {
           method: "DELETE",
         }
